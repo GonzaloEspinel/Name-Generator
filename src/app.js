@@ -1,11 +1,33 @@
 /* eslint-disable */
-import "bootstrap";
-import "./style.css";
+let domains = []
 
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
+window.onload = function () {
+  let prona = ['the', 'our'];
+  let adjs = ['great', 'best', 'organic'];
+  let noun = ['olive', 'spanish', 'oliva'];
+  let thing = ['oil', 'aceite']
+  let tlds = ['.net', '.org', '.com', '.es', '.food', '.dev']
 
-window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
-};
+
+
+
+  prona.forEach((pron) => {
+    adjs.forEach((adjs) => {
+      noun.forEach((noun) => {
+        thing.forEach((thing) => {
+          tlds.forEach((tld) => {
+            domains.push('www.' + pron + adjs + noun + thing + tld);
+          })
+        })
+      })
+    })
+  })
+  let domainsList = document.getElementsByTagName("ul");
+
+  domains.forEach((domain) => {
+    let domainItem = document.createElement("ul");
+    domainItem.innerText = domain;
+    domainsList[0].appendChild(domainItem);
+  });
+}
+
